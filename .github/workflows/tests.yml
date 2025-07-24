@@ -26,9 +26,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ${{ fromJson('["' + inputs.php-versions.replace(',', '","') + '"]') }}
-        typo3-version: ${{ fromJson('["' + inputs.typo3-versions.replace(',', '","') + '"]') }}
-        dependencies: ${{ fromJson('["' + inputs.dependencies.replace(',', '","') + '"]') }}
+        php-version: ${{ fromJson(format('["' + replace(inputs.php-versions, ',', '","') + '"]')) }}
+        typo3-version: ${{ fromJson(format('["' + replace(inputs.typo3-versions, ',', '","') + '"]')) }}
+        dependencies: ${{ fromJson(format('["' + replace(inputs.dependencies, ',', '","') + '"]')) }}
     env:
       typo3DatabaseName: typo3
       typo3DatabaseHost: '127.0.0.1'

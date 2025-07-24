@@ -44,10 +44,6 @@ on:
 jobs:
     tests:
         uses: jackd248/reusable-github-actions/.github/workflows/tests.yml@main
-        with:
-            php-versions: "8.2,8.3,8.4"
-            typo3-versions: "11.5,12.4,13.4"
-            dependencies: "highest,lowest"
 ```
 
 Input|Type| Required |Description
@@ -56,6 +52,21 @@ Input|Type| Required |Description
 `typo3-versions`|input| false    |TYPO3 versions (comma-separated). Defaults to `11.5,12.4,13.4`.
 `dependencies`|input| false    |Dependencies (comma-separated). Defaults to `highest,lowest`.
 
+```yaml
+name: Tests
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+    tests:
+        uses: jackd248/reusable-github-actions/.github/workflows/tests.yml@main
+        with:
+            php-versions: "8.2,8.3,8.4"
+            typo3-versions: "11.5,12.4,13.4"
+            dependencies: "highest,lowest"
+```
 
 ## ⭐ License
 
