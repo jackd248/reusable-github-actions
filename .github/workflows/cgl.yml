@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       php-version:
-        required: true
+        required: false
         default: '8.3'
         type: string
 
