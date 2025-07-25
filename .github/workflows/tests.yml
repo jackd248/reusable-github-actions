@@ -4,19 +4,19 @@ on:
   workflow_call:
     inputs:
       php-versions:
-        description: 'PHP versions (comma-separated)'
-        required: true
-        default: '8.2,8.3,8.4'
+        description: 'PHP versions as JSON array'
+        required: false
+        default: '["8.2", "8.3", "8.4"]'
         type: string
       typo3-versions:
-        description: 'TYPO3 versions (comma-separated)'
-        required: true
-        default: '11.5,12.4,13.4'
+        description: 'TYPO3 versions as JSON array'
+        required: false
+        default: '["11.5", "12.4", "13.4"]'
         type: string
       dependencies:
-        description: 'Dependencies (comma-separated)'
-        required: true
-        default: 'highest,lowest'
+        description: 'Dependencies as JSON array'
+        required: false
+        default: '["highest", "lowest"]'
         type: string
 
 jobs:
@@ -26,9 +26,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ${{ fromJson(format('["' + replace(inputs.php-versions, ',', '","') + '"]')) }}
-        typo3-version: ${{ fromJson(format('["' + replace(inputs.typo3-versions, ',', '","') + '"]')) }}
-        dependencies: ${{ fromJson(format('["' + replace(inputs.dependencies, ',', '","') + '"]')) }}
+        php-version: ${{ fromJson(inputs.php-versions || '["8.2", "8.3", "8.4"]') }}
+        typo3-version: ${{ fromJson(inputs.typo3-versions || '["11.5", "12.4", "13.4"]') }}
+        dependencies: ${{ fromJson(inputs.dependencies || '["highest", "lowest"]') }}
     env:
       typo3DatabaseName: typo3
       typo3DatabaseHost: '127.0.0.1'
