@@ -5,17 +5,17 @@ on:
     inputs:
       php-versions:
         description: 'PHP versions (comma-separated)'
-        required: false
+        required: true
         default: '8.2,8.3,8.4'
         type: string
       typo3-versions:
         description: 'TYPO3 versions (comma-separated)'
-        required: false
+        required: true
         default: '11.5,12.4,13.4'
         type: string
       dependencies:
         description: 'Dependencies (comma-separated)'
-        required: false
+        required: true
         default: 'highest,lowest'
         type: string
 
