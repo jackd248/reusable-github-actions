@@ -32,7 +32,7 @@ Input|Type| Required |Description
 
 ## Tests
 
-Matrix testing workflow that runs tests across multiple PHP and TYPO3 versions with both highest and lowest dependencies. Includes coverage reporting to CodeClimate and Coveralls.
+Matrix testing workflow that runs tests across multiple PHP and TYPO3 versions with both highest and lowest dependencies. Includes optional coverage reporting to CodeClimate and Coveralls.
 
 ```yaml
 name: Tests
@@ -48,9 +48,9 @@ jobs:
 
 Input|Type| Required |Description
 -|-|----------|-
-`php-versions`|input| false    |PHP versions (comma-separated). Defaults to `8.2,8.3,8.4`.
-`typo3-versions`|input| false    |TYPO3 versions (comma-separated). Defaults to `11.5,12.4,13.4`.
-`dependencies`|input| false    |Dependencies (comma-separated). Defaults to `highest,lowest`.
+`php-versions`|input| false    |PHP versions as JSON array. Defaults to `["8.2", "8.3", "8.4"]`.
+`typo3-versions`|input| false    |TYPO3 versions as JSON array. Defaults to `["11.5", "12.4", "13.4"]`.
+`dependencies`|input| false    |Dependencies as JSON array. Defaults to `["highest", "lowest"]`.
 
 ```yaml
 name: Tests
@@ -63,10 +63,18 @@ jobs:
     tests:
         uses: jackd248/reusable-github-actions/.github/workflows/tests.yml@main
         with:
-            php-versions: "8.2,8.3,8.4"
-            typo3-versions: "11.5,12.4,13.4"
-            dependencies: "highest,lowest"
+            php-versions: '["8.2", "8.3", "8.4"]'
+            typo3-versions: '["11.5", "12.4", "13.4"]'
+            dependencies: '["highest", "lowest"]'
 ```
+
+### Optional Coverage Reporting
+
+The Tests workflow includes optional coverage reporting to external services:
+
+- **CodeClimate**: Set `CC_TEST_REPORTER_ID` secret to enable
+
+If these secrets are not configured, the coverage steps will be skipped without causing workflow failures.
 
 ## ⭐ License
 

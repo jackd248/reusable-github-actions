@@ -21,7 +21,7 @@ on:
 
 jobs:
   tests:
-    name: Tests (PHP ${{ matrix.php-version }}, TYPO3 ${{ matrix.typo3-version }} & ${{ matrix.dependencies }} dependencies)
+    name: PHP ${{ matrix.php-version }}, TYPO3 ${{ matrix.typo3-version }} & ${{ matrix.dependencies }} dependencies
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
