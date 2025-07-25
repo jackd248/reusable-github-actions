@@ -2,7 +2,8 @@
 
 # Reusable GitHub Actions
 
-[![License](https://poser.pugx.org/jackd248/reusable-github-workflows/license)](LICENSE.md)
+[![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE.md)
+[![Workflows](https://img.shields.io/badge/workflows-2-green)]()
 
 </div>
 
