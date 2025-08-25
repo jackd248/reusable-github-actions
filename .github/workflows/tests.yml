@@ -97,8 +97,8 @@ jobs:
 
       # Upload artifact
       - name: Fix coverage path
-        working-directory: .build/coverage
-        run: sed -i 's#/home/runner/work/xima-typo3-frontend-edit/xima-typo3-frontend-edit#${{ github.workspace }}#g' clover.xml
+        working-directory: .Build/coverage
+        run: sed -i 's#/home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}#${{ github.workspace }}#g' clover.xml
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
         with:
