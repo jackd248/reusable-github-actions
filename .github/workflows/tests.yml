@@ -98,12 +98,12 @@ jobs:
       # Upload artifact
       - name: Fix coverage path
         working-directory: .Build/coverage
-        run: sed -i 's#/home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}#${{ github.workspace }}#g' clover.xml
+        run: sed -i 's#/var/www/html#${{ github.workspace }}#g' clover.xml
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
         with:
           name: coverage
-          path: .build/coverage/clover.xml
+          path: .Build/coverage/clover.xml
           retention-days: 7
 
   report-coverage:
