@@ -45,7 +45,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
-          coverage: none
+          coverage: pcov
 
       # Start MySQL service
       - name: Start MySQL
