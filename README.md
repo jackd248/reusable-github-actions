@@ -3,7 +3,7 @@
 # Reusable GitHub Actions
 
 [![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE.md)
-[![Workflows](https://img.shields.io/badge/workflows-3-green)]()
+[![Workflows](https://img.shields.io/badge/workflows-4-green)]()
 
 </div>
 
@@ -13,6 +13,10 @@ This repository provides useful GitHub Action workflows.
 > This package is intended for use in my personal projects only. It is not designed for general use.
 
 ## 🧩 Workflows
+
+- [CGL](#cgl)
+- [Tests (TYPO3|PHP)](#tests)
+- [Release](#release)
 
 ## CGL
 
@@ -73,7 +77,7 @@ jobs:
 ```
 
 > [!NOTE]
-> Use `jackd248/reusable-github-actions/.github/workflows/tests-php.yml@main` with a similar configuration for non-TYPO3 projects.
+> Use `jackd248/reusable-github-actions/.github/workflows/tests-php.yml@main` with a similar configuration for plain PHP projects.
 
 ### Optional Coverage Reporting
 
