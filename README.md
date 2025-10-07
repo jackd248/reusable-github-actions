@@ -3,7 +3,7 @@
 # Reusable GitHub Actions
 
 [![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE.md)
-[![Workflows](https://img.shields.io/badge/workflows-2-green)]()
+[![Workflows](https://img.shields.io/badge/workflows-3-green)]()
 
 </div>
 
@@ -76,6 +76,22 @@ The Tests workflow includes optional coverage reporting to external services:
 - **CodeClimate**: Set `CC_TEST_REPORTER_ID` secret to enable
 
 If these secrets are not configured, the coverage steps will be skipped without causing workflow failures.
+
+## Release
+
+Automated release workflow that creates a new release on GitHub.
+
+```yaml
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  release:
+        uses: jackd248/reusable-github-actions/.github/workflows/release.yml@main
+```
 
 ## ⭐ License
 
