@@ -44,6 +44,7 @@ Matrix testing workflow that runs tests across multiple PHP (and TYPO3 versions)
 
 ```yaml
 name: Tests
+
 on:
   push:
     branches:
@@ -62,6 +63,7 @@ Input|Type| Required |Description
 
 ```yaml
 name: Tests
+
 on:
   push:
     branches:
@@ -98,6 +100,7 @@ on:
   push:
     tags:
       - '*'
+
 jobs:
   release:
         uses: jackd248/reusable-github-actions/.github/workflows/release.yml@main
