@@ -33,7 +33,7 @@ Input|Type| Required |Description
 
 ## Tests
 
-Matrix testing workflow that runs tests across multiple PHP and TYPO3 versions with both highest and lowest dependencies. Includes optional coverage reporting to CodeClimate and Coveralls.
+Matrix testing workflow that runs tests across multiple PHP (and TYPO3 versions) with both highest and lowest dependencies. Includes optional coverage reporting to CodeClimate and Coveralls.
 
 ```yaml
 name: Tests
@@ -44,7 +44,7 @@ on:
 
 jobs:
     tests:
-        uses: jackd248/reusable-github-actions/.github/workflows/tests.yml@main
+        uses: jackd248/reusable-github-actions/.github/workflows/tests-typo3.yml@main
 ```
 
 Input|Type| Required |Description
@@ -68,6 +68,9 @@ jobs:
             typo3-versions: '["11.5", "12.4", "13.4"]'
             dependencies: '["highest", "lowest"]'
 ```
+
+> [!NOTE]
+> Use `jackd248/reusable-github-actions/.github/workflows/tests-php.yml@main` with a similar configuration for non-TYPO3 projects.
 
 ### Optional Coverage Reporting
 
