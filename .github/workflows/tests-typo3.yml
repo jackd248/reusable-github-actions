@@ -1,5 +1,4 @@
-# ToDo: Remove this file, when all packages use the new tests-typo3.yml
-name: Tests
+name: Tests (TYPO3)
 
 on:
   workflow_call:
