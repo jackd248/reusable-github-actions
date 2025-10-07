@@ -7,7 +7,10 @@
 
 </div>
 
-This repository provides useful GitHub Action workflows for use in my personal projects. It is not meant to be used anywhere else.
+This repository provides useful GitHub Action workflows.
+
+> [!IMPORTANT]
+> This package is intended for use in my personal projects only. It is not designed for general use.
 
 ## 🧩 Workflows
 
@@ -98,4 +101,4 @@ jobs:
 
 ## ⭐ License
 
-This project is licensed under [GNU General Public License 3.0 (or later)](LICENSE.md).
+This project is licensed under [GNU General Public License 3.0 (or later)](LICENSE).
