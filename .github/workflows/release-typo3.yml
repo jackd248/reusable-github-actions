@@ -10,6 +10,12 @@ on:
       typo3-api-token:
         required: true
 
+env:
+  TYPO3_EXTENSION_KEY: ${{ inputs.typo3-extension-key }}
+  TYPO3_API_TOKEN: ${{ secrets.typo3-api-token }}
+  TYPO3_EXCLUDE_FROM_PACKAGING: packaging_exclude.php
+  EXTENSION_ARTEFACT: ${{ inputs.typo3-extension-key }}_${{ github.ref_name }}.zip
+
 jobs:
   build:
     name: Build extension artefact
@@ -70,10 +76,6 @@ jobs:
     name: Publish on TER
     needs: [release]
     runs-on: ubuntu-latest
-    env:
-      TYPO3_EXTENSION_KEY: ${{ inputs.typo3-extension-key }}
-      TYPO3_API_TOKEN: ${{ secrets.typo3-api-token }}
-      TYPO3_EXCLUDE_FROM_PACKAGING: packaging_exclude.php
     steps:
       - uses: actions/checkout@v5
 
