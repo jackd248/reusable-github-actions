@@ -3,7 +3,7 @@
 # Reusable GitHub Actions
 
 [![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE.md)
-[![Workflows](https://img.shields.io/badge/workflows-4-green)]()
+[![Workflows](https://img.shields.io/badge/workflows-5-green)]()
 
 </div>
 
@@ -15,8 +15,10 @@ This repository provides useful GitHub Action workflows.
 ## 🧩 Workflows
 
 - [CGL](#cgl)
-- [Tests (TYPO3|PHP)](#tests)
+- [Tests](#tests)
+- [Tests TYPO3](#tests-typo3)
 - [Release](#release)
+- [Release TYPO3](#release-typo3)
 
 ## CGL
 
@@ -40,7 +42,29 @@ Input|Type| Required |Description
 
 ## Tests
 
-Matrix testing workflow that runs tests across multiple PHP (and TYPO3 versions) with both highest and lowest dependencies. Includes optional coverage reporting to CodeClimate and Coveralls.
+Matrix testing workflow that runs tests across multiple PHP versions with both highest and lowest dependencies. Includes optional coverage reporting to CodeClimate and Coveralls.
+
+```yaml
+name: Tests
+on:
+  push:
+    branches:
+      - '**'
+        
+
+jobs:
+    tests:
+        uses: jackd248/reusable-github-actions/.github/workflows/tests-php.yml@main
+``` 
+
+Input|Type| Required |Description
+-|-|----------|-
+`php-versions`|input| false    |PHP versions as JSON array. Defaults to `["8.2", "8.3", "8.4"]`.
+`dependencies`|input| false    |Dependencies as JSON array. Defaults to `["highest", "lowest"]`.
+
+## Tests TYPO3
+
+Matrix testing workflow that runs tests across multiple PHP and TYPO3 versions with both highest and lowest dependencies. Includes optional coverage reporting to CodeClimate and Coveralls.
 
 ```yaml
 name: Tests
@@ -78,9 +102,6 @@ jobs:
             dependencies: '["highest", "lowest"]'
 ```
 
-> [!NOTE]
-> Use `jackd248/reusable-github-actions/.github/workflows/tests-php.yml@main` with a similar configuration for plain PHP projects.
-
 ### Optional Coverage Reporting
 
 The Tests workflow includes optional coverage reporting to external services:
@@ -105,6 +126,32 @@ jobs:
   release:
         uses: jackd248/reusable-github-actions/.github/workflows/release.yml@main
 ```
+
+## Release TYPO3
+
+Automated release workflow for TYPO3 extension that creates a new release on GitHub and upload the extension artifact to the TER.
+
+```yaml
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+        uses: jackd248/reusable-github-actions/.github/workflows/release-typo3.yml@main
+        secrets:
+          typo3-api-token: ${{ secrets.TYPO3_API_TOKEN }}
+        with:
+          typo3-extension-key: 'your_extension_key'
+```
+
+Input|Type| Required |Description
+-|-|----------|-
+`typo3-extension-key`|input| true    |TYPO3 extension key (as used in TER and GitHub repository name).
+`typo3-api-token`|secret| true    |TYPO3 API token with permission to upload to TER.
 
 ## ⭐ License
 
