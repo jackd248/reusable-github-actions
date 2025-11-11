@@ -2,7 +2,7 @@
 
 # Reusable GitHub Actions
 
-[![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE.md)
+[![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE)
 [![Workflows](https://img.shields.io/badge/workflows-5-green)]()
 
 </div>
