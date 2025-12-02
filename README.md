@@ -3,7 +3,7 @@
 # Reusable GitHub Actions
 
 [![License](https://img.shields.io/github/license/jackd248/reusable-github-actions)](LICENSE)
-[![Workflows](https://img.shields.io/badge/workflows-5-green)]()
+[![Workflows](https://img.shields.io/badge/workflows-6-green)]()
 
 </div>
 
@@ -15,6 +15,7 @@ This repository provides useful GitHub Action workflows.
 ## 🧩 Workflows
 
 - [CGL](#cgl)
+- [CGL (Test)](#cgl-test)
 - [Tests](#tests)
 - [Tests TYPO3](#tests-typo3)
 - [Release](#release)
@@ -34,6 +35,26 @@ on:
 jobs:
     cgl:
         uses: jackd248/reusable-github-actions/.github/workflows/cgl.yml@main
+```
+
+Input|Type| Required |Description
+-|-|----------|-
+`php-version`|input| false    |PHP version to use for the CGL check. Defaults to `8.3`.
+
+## CGL (Test)
+
+Comprehensive code quality workflow that validates composer dependencies, runs linting (PHP, composer.json, editorconfig), performs static code analysis and checks rector migrations.
+
+```yaml
+name: CGL
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+    cgl:
+        uses: jackd248/reusable-github-actions/.github/workflows/cgl-test.yml@main
 ```
 
 Input|Type| Required |Description
